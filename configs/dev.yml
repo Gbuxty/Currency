@@ -1,0 +1,16 @@
+postgres:
+  host: postgres_rates
+  port: 5432
+  database: currency_db
+  user: postgres
+  password: 123456qwerty
+  sslmode: disable
+
+server:
+  port: 5051
+  connection_timeout: 5s
+
+api_grinex:
+  url: https://grinex.io/api/v2/depth?market=
+
+

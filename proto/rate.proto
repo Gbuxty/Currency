@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package rate;
+option go_package = "rate.pb";
+
+service RateService {
+  rpc GetRates (GetRatesRequest) returns (RateResponse);
+}
+
+message GetRatesRequest {
+  string currency = 1; 
+}
+
+message RateResponse {
+  string id =1;
+  double ask = 2;
+  double bid = 3;
+  int64 timestamp = 4;
+  string currency=5;
+}
