@@ -24,7 +24,7 @@ func (m *MockRateRepository) SaveDataRate(ctx context.Context, data *domain.Rate
 	return args.Get(0).(*domain.Rate), args.Error(1)
 }
 
-// Мок для GrinexApi
+
 type MockGrinexApi struct {
 	mock.Mock
 }

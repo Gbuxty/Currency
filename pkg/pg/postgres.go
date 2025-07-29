@@ -3,13 +3,8 @@ package pg
 import (
 	"context"
 	"fmt"
-	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-)
-
-const (
-	timeot = 5 * time.Second
 )
 
 func NewClient(ctx context.Context, dsn string) (*pgxpool.Pool, error) {

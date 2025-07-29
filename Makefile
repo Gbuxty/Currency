@@ -1,4 +1,4 @@
-DB_URL="postgresql://postgres:123456qwerty@postgres:5432/currency_db?sslmode=disable"
+DB_URL="postgresql://postgres:123456qwerty@localhost:5432/currency_db?sslmode=disable"
 
 gen-proto:
 	protoc --go_out=./proto --go-grpc_out=./proto proto/rate.proto

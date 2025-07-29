@@ -17,6 +17,10 @@ import (
 	"time"
 )
 
+const (
+	timeout = time.Second * 5
+)
+
 func Run() error {
 	logger, err := logger.New()
 	if err != nil {
@@ -28,7 +32,7 @@ func Run() error {
 		return fmt.Errorf("failed to load config: %w", err)
 	}
 
-	ctx,cancel := context.WithTimeout(context.Background(),time.Second*5)
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 
 	db, err := pg.NewClient(ctx, cfg.Postgres.ToDSN())
@@ -44,7 +48,6 @@ func Run() error {
 	handlers := handlers.NewRateHandler(svc, logger)
 
 	srv := server.NewGrpcServer(logger, cfg.Server, handlers)
-
 
 	if err := srv.Start(ctx); err != nil {
 		logger.Errorf("error server :%w", err)
